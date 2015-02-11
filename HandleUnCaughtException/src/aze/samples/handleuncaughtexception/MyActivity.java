@@ -2,6 +2,7 @@ package aze.samples.handleuncaughtexception;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -28,6 +29,8 @@ public class MyActivity extends FragmentActivity {
 		super.onCreate(savedInstanceState);
 		Thread.setDefaultUncaughtExceptionHandler(new UnCaughtException(MyActivity.this, TAG, formatter.format(new Date()) + ".txt"));
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+		throw new NullPointerException();
 	}
 
 }
